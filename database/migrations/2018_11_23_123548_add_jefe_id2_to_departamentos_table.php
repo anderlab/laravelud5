@@ -19,7 +19,7 @@ class AddJefeId2ToDepartamentosTable extends Migration
             $table->foreign('jefe_id')->references('id')
             ->on('empleados')
             ->onDelete('cascade')
-            ->onUpdate('cascade');;
+            ->onUpdate('cascade');
         });
     }
 
@@ -30,9 +30,10 @@ class AddJefeId2ToDepartamentosTable extends Migration
      */
     public function down()
     {
-        Schema::table('departamentos', function (Blueprint $table) {
+      
             Schema::dropColumn('jefe_id');
-        });
+            
+      
 
     }
 }
