@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddJefeIdToDepartamentosTable extends Migration
+class AddJefeId2ToDepartamentosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,12 @@ class AddJefeIdToDepartamentosTable extends Migration
     public function up()
     {
         Schema::table('departamentos', function (Blueprint $table) {
-            $table->integer('jefe_id');
+            $table->integer('jefe_id')->unsigned();
+
+            $table->foreign('jefe_id')->references('id')
+            ->on('empleados')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');;
         });
     }
 
@@ -26,7 +31,8 @@ class AddJefeIdToDepartamentosTable extends Migration
     public function down()
     {
         Schema::table('departamentos', function (Blueprint $table) {
-            //
+            Schema::dropColumn('jefe_id');
         });
+
     }
 }
