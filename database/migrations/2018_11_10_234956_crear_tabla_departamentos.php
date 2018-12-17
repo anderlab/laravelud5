@@ -31,3 +31,4 @@ class CrearTablaDepartamentos extends Migration
         Schema::dropIfExists('departamentos');
     }
 }
+ 

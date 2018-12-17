@@ -33,4 +33,4 @@ class CrearTablaEmpleados extends Migration
     {
         Schema::dropIfExists('empleados');
     }
-}
+} 
